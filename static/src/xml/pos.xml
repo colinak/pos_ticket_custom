@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="template" xml:space="preserve">
+
+    <t t-extend="PosTicket">
+        <t t-jquery="div[class='pos-sale-ticket']" t-operation="prepend">
+          <div class="pos-center-align">
+              <div name="logo_company">
+                <img t-att-src="widget.pos.company_logo_base64"/>
+              </div>
+              <br />
+              <div style="font-family: Helvetica,Monaco,Georgia,Futura,Arial,Verdana,sans-serif;">
+                <span t-esc="widget.pos.company.name" />
+                <br />
+                <!--<span t-esc="widget.pos.company.contact_address['street']" />-->
+                <!--<div name="invoice_address" class="col-4">-->
+                  <!--<div t-esc="widget.pos.company.contact_address" -->
+                    <!--t-options="{&quot;widget&quot;: &quot;contact&quot;, -->
+                    <!--&quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], -->
+                    <!--&quot;no_marker&quot;: true}" />-->
+                <!--</div>-->
+                <span>Josefa Ortiz de Dominguez 189</span>
+                <br />
+                <span>Ahualulco de Mercado, Jalisco CP 46730</span>
+                <br />
+                <span>RFC: </span>
+                <span t-esc="widget.pos.company.vat" />
+                <br />
+                <span>Tel: </span>
+                <span t-esc="widget.pos.company.phone" />
+              </div>
+            </div>
+        </t>
+    </t>
+    <t t-extend="PosTicket">
+        <t t-jquery="t[t-esc='widget.pos.company.name']" t-operation="replace">
+        </t>
+    </t>
+    <t t-extend="PosTicket">
+        <t t-jquery="div[class='receipt-phone']" t-operation="replace">
+        </t>
+    </t>
+    <t t-extend="PosTicket">
+      <t t-jquery="div[class='receipt-user']" t-operation="replace"
+        style="font-family: Helvetica,Monaco,Georgia,Futura,Arial,Verdana,sans-serif;">
+          Vendedor: <t t-esc="widget.pos.get_cashier().name"/><br />
+        </t>
+    </t>
+    <t t-extend="PosTicket">
+        <t t-jquery="table[class='receipt-orderlines']" t-operation="before">
+          <table class="receipt-orderlines"
+            style="border-solid: 1px; font-family: Helvetica,Monaco,Georgia,Futura,Arial,Verdana,sans-serif;">
+            <colgroup>
+              <col width="50%"/>
+              <col width="25%"/>
+              <col width="25%"/>
+            </colgroup>
+            <thead>
+              <th>Producto</th>
+              <th style='text-align:right'>Cantidad</th>
+              <th style='text-align:right'>Importe</th>
+            </thead>
+          </table>
+        </t>
+    </t>
+    <t t-extend="PosTicket">
+        <t t-jquery="table[class='receipt-change']" t-operation="after">
+          <div class="pos-center-aling" 
+            style="font-size: 85%; font-family: Helvetica,Monaco,Georgia,Futura,Arial,Verdana,sans-serif;">
+            <br/>
+            <br/><br/>
+            Por este pagaré, debo y me comprometo incondicionalmente pagar la 
+            orden de Distribuciones CREDO y/o Gregorio Soto Prieto, la cantidad
+            estipulada en este documento en un plazo máximo de 7 días contados
+            a partir de la fecha impresa en el porte, el imcumplimiento generara
+            un 3% mensual.
+            <br/>
+            <br/>
+            <br/>
+             _________________Firma_________________
+            <br/>
+            <br/>
+            SOLO SE FACTURAN LOS PEDIDOS PAGADOS DEL MES EN CURSO
+            <br/>
+            <br/>
+            En Cambio y/o Devoluciones deberá presentar el ticket de compra sin
+            exceptión.
+            <br/>
+            ***Se Aplican Restriccione***
+          </div>
+        </t>
+    </t>
+
+</templates>
