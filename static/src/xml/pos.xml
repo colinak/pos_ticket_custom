@@ -37,29 +37,62 @@
       <t t-jquery="div[class='receipt-user']" t-operation="replace"
         style="font-family: Helvetica,Monaco,Georgia,Futura,Arial,Verdana,sans-serif;">
           Vendedor: <t t-esc="widget.pos.get_cashier().name"/><br />
-        </t>
+      </t>
     </t>
     <t t-extend="PosTicket">
         <t t-jquery="table[class='receipt-orderlines']" t-operation="before">
-          <table class="receipt-orderlines"
-            style="border-solid: 1px; font-family: Helvetica,Monaco,Georgia,Futura,Arial,Verdana,sans-serif;">
-            <colgroup>
-              <col width="50%"/>
-              <col width="25%"/>
-              <col width="25%"/>
-            </colgroup>
-            <thead>
-              <th>Producto</th>
-              <th style='text-align:right'>Cantidad</th>
-              <th style='text-align:right'>Importe</th>
-            </thead>
-          </table>
+          <div class="page" style="max-width: 98%;">
+            <table class="receipt-orderlines"
+              style="border-solid: 1px; font-family: Helvetica,Monaco,Georgia,Futura,Arial,Verdana,sans-serif;">
+              <colgroup>
+                <col width="50%"/>
+                <col width="25%"/>
+                <col width="25%"/>
+              </colgroup>
+              <thead>
+                <th>Producto</th>
+                <th style='text-align:right'>Cantidad</th>
+                <th style='text-align:right'>Importe</th>
+              </thead>
+            </table>
+          </div>
         </t>
     </t>
+
+    <t t-extend="PosTicket">
+        <t t-jquery="table[class='receipt-orderlines']" t-operation="attributes">
+          <attribute name="style">max-width: 95%;</attribute>
+        </t>
+    </t>
+
+    <t t-extend="PosTicket">
+        <t t-jquery="table[class='receipt-total']" t-operation="attributes">
+          <attribute name="style">max-width: 95%;</attribute>
+        </t>
+    </t>
+
+    <t t-extend="PosTicket">
+        <t t-jquery="table[class='receipt-paymentlines']" t-operation="attributes">
+          <attribute name="style">max-width: 95%;</attribute>
+        </t>
+    </t>
+
+    <t t-extend="PosTicket">
+        <t t-jquery="table[class='receipt-change']" t-operation="attributes">
+          <attribute name="style">max-width: 95%;</attribute>
+        </t>
+    </t>
+
+    <t t-extend="PosTicket">
+        <t t-jquery="table[class='receipt.footer']" t-operation="attributes">
+          <attribute name="style">max-width: 95%;</attribute>
+        </t>
+    </t>
+
     <t t-extend="PosTicket">
         <t t-jquery="table[class='receipt-change']" t-operation="after">
           <div class="pos-center-aling" 
-            style="font-size: 85%; font-family: Helvetica,Monaco,Georgia,Futura,Arial,Verdana,sans-serif;">
+            style="font-size: 85%; font-family: Helvetica,Monaco,Georgia,Futura,Arial,Verdana,sans-serif; max-width: 95%;">
             <br/>
             <br/><br/>
             Por este pagaré, debo y me comprometo incondicionalmente pagar la 
@@ -70,7 +103,9 @@
             <br/>
             <br/>
             <br/>
-             _________________Firma_________________
+            <center>
+              _________________Firma_________________
+            </center>
             <br/>
             <br/>
             SOLO SE FACTURAN LOS PEDIDOS PAGADOS DEL MES EN CURSO
